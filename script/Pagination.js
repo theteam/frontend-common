@@ -1,4 +1,4 @@
-(window.theTeam) || (window.theTeam = {});
+window.theTeam || (window.theTeam = {});
 
 /*
 	usage:
@@ -6,8 +6,11 @@
 			// ...
 		});
 	
-	options:
-		prevNext - Add previous and next links to the start and end of the pagination
+	params:
+		target - $element to insert pagination container into
+		pages - Number of pages to cater for
+		options:
+			prevNext - Add previous and next links to the start and end of the pagination
 		
 	properties:
 		$container - <ol> container
