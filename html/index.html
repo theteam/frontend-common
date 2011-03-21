@@ -1,0 +1,43 @@
+<!DOCTYPE html>{% load media %}
+<!--[if lte IE 8 ]><html lang="en" class="ie-lte-8"><![endif]-->
+<!--[if (gte IE 9)|!(IE)]><!--><html lang="en"><!--<![endif]-->
+<head>
+	<meta charset="utf-8"/>
+	<!--[if IE 8]><meta http-equiv="X-UA-Compatible" content="IE=7"/><![endif]-->
+	<!--[if gt IE 8]><meta http-equiv="X-UA-Compatible" content="IE=edge"/><![endif]-->
+    <title></title>
+	<meta name="description" content="">
+	<meta name="author" content="">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	
+	<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
+	{% comment %}
+        <link rel="stylesheet" href="{{ STATIC_URL }}css/mainmin.css">
+	{% endcomment %}
+			
+	<script>
+		document.documentElement.className+=' js';
+		var STATIC_URL = '{{ STATIC_URL }}', WebFontConfig={custom:{families:['Font Name','Font Name'],urls:['fontfile.css']}};
+		(function() {
+			var wf=document.createElement('script'),s=document.getElementsByTagName('script')[0];
+			{% if DEBUG %}
+				wf.src='{{STATIC_URL}}scripts/webfont.js';
+			{% else %}
+				wf.src='//ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+			{% endif %}
+			s.parentNode.insertBefore(wf,s)
+		})();
+	</script>
+</head>
+<body class="{% block body_classes %}{% endblock %}">
+	
+	
+		<script src="{{ STATIC_URL }}scripts/jquery-1.5.1.js"></script>
+		<script src="{{ STATIC_URL }}scripts/base.js"></script>
+	{% comment %}
+		<script src="{{ STATIC_URL }}scripts/mainmin.js"></script>
+	{% endcomment %}
+</body>
+</html>
