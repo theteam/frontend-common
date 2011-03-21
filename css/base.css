@@ -32,13 +32,23 @@ html, body {
 	}
 	pre, code, kbd, samp { font-family: monospace, sans-serif; }
 	/*
-		sub, sup { font-size: 75%; line-height: 0; position: relative; }
-		sup { top: -0.5em; }
-		sub { bottom: -0.25em; }
+	sub, sup { font-size: 75%; line-height: 0; position: relative; }
+	sup { top: -0.5em; }
+	sub { bottom: -0.25em; }
 	*/
 	p {
 		line-height: 1.4;
 	}
+	/* font loading *
+		/* hide while loading if fouc is too disruptive *
+		.js nothing-yet {
+			visibility: hidden;
+		}
+		/* show if loading failed/worked *
+		.wf-fontname-inactive nothing-yet,
+		.wf-fontname-active nothing-yet {
+			visibility: visible;
+		}
 /* Links */
 	a img {
 		border: 0;
@@ -88,15 +98,55 @@ html, body {
 	
 	label, input[type="button"], input[type="submit"], input[type="image"], button { cursor: pointer; }
 
-/* Shadows */
-	/*
+/* PNG fixes *
 	nothing-yet {
+		_behavior: url(/static/scripts/PIE.htc);
+		_-pie-png-fix: true;
+	}
+/* Hidden offscreen *
+	nothing-yet {
+		border: 0;
+		clip: rect(0 0 0 0);
+		eight: 1px;
+		margin: -1px;
+		overflow: hidden;
+		padding: 0;
+		position: absolute;
+		width: 1px;
+	}
+/* Shadows *
+	nothing-yet {
+		behavior: url(/static/scripts/PIE.htc);
 		-moz-box-shadow: 0 0 2px #aaa;
 		-ms-box-shadow: 0 0 2px #aaa;
 		-o-box-shadow: 0 0 2px #aaa;
 		-webkit-box-shadow: 0 0 2px #aaa;
 		box-shadow: 0 0 2px #aaa;
 	}
-	*/
-/* Rounded corners */
-	
+/* Rounded corners *
+	nothing-yet {
+		behavior: url(/static/scripts/PIE.htc);
+		-moz-border-radius: 10px;
+		border-radius: 10px;
+	}
+/* Gradients *
+	nothing-yet {
+		background: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0)), to(rgba(0, 0, 0, 1)));
+		background: -moz-linear-gradient(-90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+		background: linear-gradient(-90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
+		filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#00000000, endColorstr=#ff000000);
+	}
+/* Arrows *
+	nothing-yet {
+		border: 7px dashed #fff;
+		border-top-style: solid;
+		width: 0; height: 0;
+		overflow: hidden;
+		border-color: #fff transparent transparent; 
+	}
+/**/
+
+/*******************************************
+ ********* Section specific styles *********
+ *******************************************/
+
