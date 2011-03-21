@@ -200,4 +200,9 @@
 		// apply some bg images on-load to give priority to other images
 		document.documentElement.className += ' on-load';
 	});
+	
+	// http://blogs.msdn.com/b/cwilso/archive/2006/11/07/ie-re-downloading-background-images.aspx
+	try {
+		document.execCommand("BackgroundImageCache", false, true);
+	} catch(e) {}
 })(window, document);
