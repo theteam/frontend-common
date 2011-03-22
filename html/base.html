@@ -10,12 +10,6 @@
 	<meta name="author" content="">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
-        <link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
-	{% comment %}
-        <link rel="stylesheet" href="{{ STATIC_URL }}css/mainmin.css">
-	{% endcomment %}
-
-	<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 	<script>
 		document.documentElement.className+=' js';
 		var STATIC_URL = '{{ STATIC_URL }}', WebFontConfig={custom:{families:['Font Name','Font Name'],urls:['fontfile.css']}};
@@ -29,6 +23,13 @@
 			s.parentNode.insertBefore(wf,s)
 		})();
 	</script>
+
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
+	{% comment %}
+		<link rel="stylesheet" href="{{ STATIC_URL }}css/mainmin.css">
+	{% endcomment %}
+
+	<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
 </head>
 <body class="{% block body_classes %}{% endblock %}">
 	
