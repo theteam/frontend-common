@@ -122,7 +122,6 @@ html, body {
 	nothing-yet {
 		behavior: url(/static/scripts/PIE.htc);
 		-moz-box-shadow: 0 0 2px #aaa;
-		-ms-box-shadow: 0 0 2px #aaa;
 		-o-box-shadow: 0 0 2px #aaa;
 		-webkit-box-shadow: 0 0 2px #aaa;
 		box-shadow: 0 0 2px #aaa;
