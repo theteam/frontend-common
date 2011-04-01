@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Test</title>
+	<style>
+		.test {
+			width: 100px;
+			height: 100px;
+			background: red;
+		}
+		.test2 {
+			width: 100px;
+			height: 100px;
+			background: green;
+		}
+		.test2:hover {
+			background: red;
+		}
+	</style>
+</head>
+<body>
+	<div class="test"></div>
+	<div class="test2"></div>
+	<script src="../../sonytube/script/jquery-1.5.1.js"></script>
+	<script src="../script/jquery.transition.js"></script>
+	<script>
+		$('.test2').transition({
+			transform: 'scale(5) rotate(90deg)'
+		}, {duration: 10000, easing: 'easeInOutQuint', complete: function() {
+			console.log('done');
+		}})
+	</script>	
+</body>
