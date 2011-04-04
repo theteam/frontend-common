@@ -118,6 +118,15 @@ html, body {
 		position: absolute;
 		width: 1px;
 	}
+/* Image replacement *
+	nothing-yet {
+		display: block;
+		text-indent: -999em;
+		overflow: hidden;
+		background-repeat: no-repeat;
+		text-align: left;
+		direction: ltr;
+	}
 /* Shadows *
 	nothing-yet {
 		behavior: url(/static/scripts/PIE.htc);
