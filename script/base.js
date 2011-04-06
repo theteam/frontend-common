@@ -1,5 +1,4 @@
-
-(function() {
+(function(window, document, undefined) {
 	// get an element's auto-height
 	/*$.fn.fullHeight = function() {
 		var height = this.height(),
