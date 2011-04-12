@@ -147,6 +147,11 @@ html, body {
 		background: -moz-linear-gradient(-90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
 		background: linear-gradient(-90deg, rgba(0, 0, 0, 0), rgba(0, 0, 0, 1));
 		filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#00000000, endColorstr=#ff000000);
+
+		background: -webkit-gradient(linear, left top, left bottom, from(#f0eff0), to(#e8e7e8));
+		background: -moz-linear-gradient(-90deg, #f0eff0, #e8e7e8);
+		background: linear-gradient(-90deg, #f0eff0, #e8e7e8);
+		filter: progid:DXImageTransform.Microsoft.gradient(GradientType=0, startColorstr=#f0eff0, endColorstr=#e8e7e8);
 	}
 /* Arrows *
 	nothing-yet {
