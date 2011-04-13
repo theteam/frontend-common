@@ -68,8 +68,10 @@
 	// Label must have a for attribute
 	/*$.fn.placeholder = function() {
 		this.each(function() {
-			var $label = $(this),
+			var $label = $(this).css('position', 'absolute'),
 				$input = $( '#' + $label.attr('for') );
+			
+			$label.css( $input.position() );
 			
 			function hideLabel() {
 				$label.hide();
