@@ -26,7 +26,9 @@ window.theTeam || (window.theTeam = {});
 		busy - True while the pane is animating
 	
 	methods:
-		changeTo(pageNum) - Move to a particular page
+		changeTo(pageNum, opts) - Move to a particular page
+			options:
+				forward - true: Move new page in from the right, false: Move new page in from the left. Default: auto, depends on previous page
 */
 theTeam.ScrollPane = (function() {
 	function ScrollPane($itemContainer, opts) {
@@ -91,11 +93,13 @@ theTeam.ScrollPane = (function() {
 		this._$itemContainer.css('left', 0);
 	};
 	
-	ScrollPaneProto.changeTo = function(pageNum) {
+	ScrollPaneProto.changeTo = function(pageNum, opts) {
 		if (pageNum === this._currentPage || this.busy) { return this; }
 		
+		opts = opts || {};
+		
 		var scrollPane = this,
-			moveBack = pageNum < scrollPane._currentPage,
+			moveBack = 'forward' in opts ? !opts.forward : pageNum < scrollPane._currentPage,
 			start = scrollPane.itemsPerPage * (pageNum - 1),
 			$nextItems = scrollPane._$items.slice(start, start + scrollPane.itemsPerPage);
 		
