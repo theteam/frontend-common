@@ -132,7 +132,10 @@ theTeam.ScrollPane = (function() {
 				opacity: 1
 			}, {
 				duration: duration,
-				easing: easing
+				easing: easing,
+				complete: function() {
+					$(this).css('filter', '');
+				}
 			});
 			
 			scrollPane._$currentItems.animate({
