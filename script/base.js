@@ -197,6 +197,17 @@
 		}
 	})();*/
 	
+	$('html').ajaxSend(function(event, xhr, settings) {
+		function getCookie(name) {
+			return (result = new RegExp('(?:^|; )' + encodeURIComponent(name) + '=([^;]*)').exec(document.cookie))
+				? decodeURIComponent(result[1]) : undefined;
+		}
+		if (!(/^http:.*/.test(settings.url) || /^https:.*/.test(settings.url))) {
+			// Only send the token to relative URLs i.e. locally.
+			xhr.setRequestHeader("X-CSRFToken", getCookie('csrftoken'));
+		}
+	});
+
 	$(window).bind('load', function() {
 		// apply some bg images on-load to give priority to other images
 		document.documentElement.className += ' on-load';
