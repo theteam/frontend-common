@@ -10,11 +10,10 @@
 	
 	// Make element's width and heights static
 	/*$.fn.staticSize = function() {
-		this.each(function() {
+		return this.each(function() {
 			var $this = $(this);
 			$this.width( $this.width() ).height( $this.height() );
 		});
-		return this;
 	};*/
 	
 	// listen for keyup after a ms delay
