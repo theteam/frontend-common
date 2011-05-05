@@ -11,8 +11,7 @@
 			// 'WebkitBorderRadius' if supported, else...
 			// etc etc, else ''
 	 */
-	var theTeam = window.theTeam || (window.theTeam = {}),
-		easings = {
+	var easings = {
 			easeInQuad: 'cubic-bezier(0.550, 0.085, 0.680, 0.530)',
 			easeInCubic: 'cubic-bezier(0.550, 0.055, 0.675, 0.190)',
 			easeInQuart: 'cubic-bezier(0.895, 0.030, 0.685, 0.220)',
@@ -71,7 +70,7 @@
 		transitionProp = getCssPropName('transition');
 		
 		
-	theTeam.getCssPropName = getCssPropName;
+	$.getCssPropName = getCssPropName;
 	easings.swing = easings.easeInOutQuart;
 	
 	/*
@@ -95,6 +94,10 @@
 			        effects queue. If false, the animation will begin immediately.
 	*/
 	$.fn.transition = function(properties, opts) {
+		if (!transitionProp) {
+			return this.animate(properties, opts);
+		}
+		
 		opts = $.extend({
 			duration: 500,
 			easing: 'swing',
@@ -123,13 +126,16 @@
 				setTimeout(next,0);
 			}
 			
-			$elm.bind(transitionend, complete)
-			    .css( transitionProp, 'all ' + (+opts.duration/1000) + 's ' + easings[opts.easing] )
-				.css( getCssPropName('transition-property'), propsStr );
-			
-			// opera needs the set timeout rule
+			// using setTimeout to let any .css() calls apply, eg $('#blah').css('top', 50).transition({ top: 0 })
 			setTimeout(function() {
-				$elm.css(translatedProps);
+				$elm.bind(transitionend, complete)
+					.css( transitionProp, 'all ' + (+opts.duration/1000) + 's ' + (easings[opts.easing] || opts.easing) )
+					.css( getCssPropName('transition-property'), propsStr );
+					
+				// opera needs the new CSS applied after a render
+				setTimeout(function() {
+					$elm.css(translatedProps);
+				}, 0);
 			}, 0);
 		});
 		
