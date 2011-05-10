@@ -67,12 +67,13 @@ theTeam.ScrollPane = (function() {
 	// Make the visible items position: absolute & record their positions
 	ScrollPaneProto._fixPos = function() {
 		var scrollPane = this,
-			itemWidth = scrollPane._$items.width();
+			itemWidth = scrollPane._$items.width(),
+			$itemContainer = scrollPane._$itemContainer;
 		
 		// fix width and height of scroll pane
-		scrollPane._$pane.staticSize();
+		$itemContainer.staticSize();
+		scrollPane._$pane.width( $itemContainer.outerWidth() ).height( $itemContainer.outerHeight() );
 		scrollPane._paneWidth = scrollPane._$pane.width();
-		scrollPane._$itemContainer.staticSize();
 		
 		// this is an array rather than jq as for looping carousels, we may want to represent them in a different order to the DOM, & jq likes to reorder
 		scrollPane._currentItems = scrollPane._$items.slice(0, scrollPane.itemsPerPage).each(function() {
