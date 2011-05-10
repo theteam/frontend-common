@@ -119,8 +119,6 @@ theTeam.ScrollPane = (function() {
 			start = scrollPane.itemsPerPage * (pageNum - 1) % scrollPane._$items.length,
 			nextItems = scrollPane._getNextItems(start);
 		
-		console.log(nextItems);
-		
 		scrollPane._posForAnim(nextItems, moveBack);
 		scrollPane.busy = true;
 		
