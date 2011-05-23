@@ -25,10 +25,14 @@
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.5.1/jquery.js"></script>
 	<script src="../script/jquery.transition.js"></script>
 	<script>
-		$('.test2').transition({
-			transform: 'scale(5) rotate(90deg)'
-		}, {duration: 10000, easing: 'easeInOutQuint', complete: function() {
-			console.log('done');
+		$('.test2').vendorCss('transform', 'scale(5) rotate(90deg)').transition({
+			transform: 'scale(5) rotate(91deg)'
+		}, {duration: 3000, easing: 'easeInOutQuint', complete: function() {
+			console.log('done1');
+		}}).transition({
+			transform: 'scale(5) rotate(-90deg)'
+		}, {duration: 3000, easing: 'easeInOutQuint', complete: function() {
+			console.log('done2');
 		}});
 	</script>	
 </body>

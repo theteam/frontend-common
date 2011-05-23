@@ -34,9 +34,10 @@
 			easeInOutExpo: 'cubic-bezier(1.000, 0.000, 0.000, 1.000)',
 			easeInOutCirc: 'cubic-bezier(0.785, 0.135, 0.150, 0.860)'
 		},
+		$testElm = $('<b/>'),
 		transitionend = 'transitionend webkitTransitionEnd oTransitionEnd',
 		getCssPropName = (function() {
-			var style = document.createElement('b').style,
+			var style = $testElm[0].style,
 				prefixes = ['Webkit', 'O', 'Ie', 'Moz'],
 				cache = {};
 	
@@ -68,9 +69,7 @@
 			}
 		})(),
 		transitionProp = getCssPropName('transition');
-		
-		
-	$.getCssPropName = getCssPropName;
+	
 	easings.swing = easings.easeInOutQuart;
 	
 	/*
@@ -130,7 +129,7 @@
 			setTimeout(function() {
 				$elm.bind(transitionend, complete)
 					.css( transitionProp, 'all ' + (+opts.duration/1000) + 's ' + (easings[opts.easing] || opts.easing) )
-					.css( getCssPropName('transition-property'), propsStr );
+					.vendorCss('transition-property', propsStr);
 					
 				// opera needs the new CSS applied after a render
 				setTimeout(function() {
@@ -140,6 +139,23 @@
 		});
 		
 		return this;
+	};
+	
+	/*
+		usage:
+			$('#blah').vendorCss('border-radius', '10px');
+			
+			Works as .css, but property names will use vendor prefixes such as -webkit- if needed
+	*/
+	$.fn.vendorCss = function(prop, value) {
+		if (typeof prop == 'object') {
+			for (var key in prop) {
+				this.vendorCss( key, prop[key] );
+			}
+			return this;
+		}
+		prop = getCssPropName(prop);
+		return arguments.length > 1 ? this.css(prop, value) : this.css(prop);
 	};
 	
 	$.support.transition = !!transitionProp;
