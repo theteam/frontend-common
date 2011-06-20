@@ -143,6 +143,18 @@
 	
 	/*
 		usage:
+			$('#blah').transitionStop(true)
+			
+			Works the same as jquery.fn.stop, but for animations started via .transition.
+			
+			Skip to end not supported yet
+	*/
+	$.fn.transitionStop = function(clearQueue) {
+		return this.stop(clearQueue).vendorCss(transitionProp, '');
+	};
+	
+	/*
+		usage:
 			$('#blah').vendorCss('border-radius', '10px');
 			
 			Works as .css, but property names will use vendor prefixes such as -webkit- if needed
