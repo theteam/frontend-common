@@ -9,7 +9,7 @@
 		var list  = calls[ev] || (calls[ev] = []);
 		list.push(callback);
 		return this;
-    };
+	};
 	
 	EventEmitterProto.unbind = function(ev, callback) {
 		var calls;
@@ -33,7 +33,7 @@
 			}
 		}
 		return this;
-    }
+	}
 	
 	EventEmitterProto.trigger = function(eventName) {
 		var list, calls, ev, callback, args;
@@ -54,7 +54,7 @@
 			}
 		}
 		return this;
-    }
+	}
 	
-	scampCat.EventEmitter = EventEmitter;
+	theTeam.EventEmitter = EventEmitter;
 })();
