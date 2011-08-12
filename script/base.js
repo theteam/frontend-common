@@ -1,4 +1,13 @@
 (function(window, document, undefined) {
+	// Add an event for click or enter on keyboard
+	/*$.fn.activate = (function(callback) {
+		this.prop('tabIndex', '0').click(callback).keyup(function(event){
+			if (event.keyCode == 13) {
+				return callback(event)
+			}
+		});
+	})();*/
+
 	// get an element's auto-height
 	/*$.fn.fullHeight = function() {
 		var height = this.height(),
