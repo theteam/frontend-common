@@ -84,5 +84,6 @@
 		return deferred.promise();
 	};
 	
-	scampCat.InlineEdit = InlineEdit;
+	theTeam || (theTeam = {});
+	theTeam.InlineEdit = InlineEdit;
 })();
