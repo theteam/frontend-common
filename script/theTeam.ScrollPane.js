@@ -52,7 +52,7 @@ theTeam.ScrollPane = (function() {
 		
 		this.currentPage = 1;
 		this._$itemContainer = $itemContainer;
-		this._$pane = $('<div class="scroll-pane" />').css({ overflow: 'hidden', position: 'relative' }).insertBefore($itemContainer).append($itemContainer);
+		this._$pane = $('<div class="scroll-pane" />').css({ overflow: 'hidden', position: 'relative', zoom: 1 }).insertBefore($itemContainer).append($itemContainer);
 		this._$items = $itemContainer.children();
 		this.itemsPerPage = getItemsPerPage(this._$items);
 		this.totalPages = Math.ceil( this._$items.length / this.itemsPerPage );
