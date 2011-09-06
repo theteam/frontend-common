@@ -11,17 +11,15 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	
 	<script>
-		(function(w,d,t) {
-			d.documentElement.className+=' js';
-			w.STATIC_URL = '{{ STATIC_URL }}'; w.WebFontConfig={custom:{families:['font name', 'font name'],urls:['cssfile.css']}};
-			var wf=d.createElement(t),s=d.getElementsByTagName(t)[0];
-			{% if DEBUG %}
-				wf.src='{{STATIC_URL}}scripts/webfont_debug.js';
-			{% else %}
-				wf.src='//ajax.googleapis.com/ajax/libs/webfont/1.0.19/webfont.js';
-			{% endif %}
-			s.parentNode.insertBefore(wf,s)
-		})(window, document, 'script');
+		setTimeout(function(){var a=document,g,b={families:(g=
+		["josefin","cartoonist"]),urls:["fonts.css"]},
+		c="//ajax.googleapis.com/ajax/libs/webfont/1.0.19/webfont.js",d="script",
+		e=a.createElement(d),f=a.getElementsByTagName(d)[0],h=g.length;WebFontConfig
+		={custom:b},e.src=c,f.parentNode.insertBefore(e,f);for(;h--;a.documentElement
+		.className+=' wf-'+g[h].replace(/\s/g,'').toLowerCase()+'-n4-loading');},0);
+		
+		document.documentElement.className+=' js';
+		window.STATIC_URL = '{{ STATIC_URL }}';
 	</script>
 
 		<link rel="stylesheet" href="{{ STATIC_URL }}css/base.css">
